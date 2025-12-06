@@ -1,4 +1,5 @@
 ﻿using System;
+using DesignPattern.ObjectPool;
 using Sirenix.Serialization;
 using UnityEngine;
 
@@ -15,9 +16,10 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
         Patrol,
         Follow,
         Attack,
+        GetHit,
+        Die,
     }
-
-    private Vector3 _targetPoint;
+    
     private bool _isDelayStart = true;
 
     private void Awake()
@@ -42,6 +44,13 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
             case State.Follow:
                 break;
             case State.Attack:
+                Attack();
+                break;
+            case State.GetHit:
+                GetHit();
+                break;
+            case State.Die:
+                Die();
                 break;
         }
     }
@@ -63,13 +72,42 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
                 }
                 break;
             case State.Patrol:
-                Patrol(_savePoint);
+                Patrol();
                 break;
             case State.Follow:
+                Follow();
                 break;
             case State.Attack:
                 break;
         }
     }
-    
+
+    public override void Follow()
+    {
+        if (Vector3.Distance(transform.position, _targetPoint) <= _enemyData.attackRange)
+        {
+            ChangeState(State.Attack);
+            return;
+        }
+        var direction = (_targetPoint - transform.position).normalized;
+        Move(direction, _enemyData.runSpeeed);
+    }
+
+    public override void GetHit()
+    {
+        _animation.Play(_animGetHit.name);
+        OnDelayCall(_animGetHit.length + 0.1f, () =>
+        {
+            ChangeState(State.Follow);
+        });
+    }
+
+    public override void Attack()
+    {
+        _animation.Play(_animAttack.name);
+        OnDelayCall(_animAttack.length + 0.1f, () =>
+        {
+            ChangeState(State.Follow);
+        });
+    }
 }

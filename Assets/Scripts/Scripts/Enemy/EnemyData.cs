@@ -8,8 +8,9 @@ public class EnemyData : SerializedScriptableObject
     public float maxHealth;
     public float distanceCheckGround;
     public float moveSpeed;
+    public float runSpeeed;
     public float jumpForce;
     public float patrolRange;
-    public float attackFollow;
+    public float attackFollowRange;
     public float attackRange;
 }
