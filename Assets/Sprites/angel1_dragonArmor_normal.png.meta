@@ -1,0 +1,831 @@
+fileFormatVersion: 2
+guid: 5acc2434625abb5408c93b3ea4b01c24
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: idel1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 385
+        width: 49
+        height: 75
+      alignment: 9
+      pivot: {x: 0.28777808, y: 0.41931844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc5d463f0a82dc4b93affec5f555f61
+      internalID: -1540484902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 385
+        width: 48
+        height: 74
+      alignment: 9
+      pivot: {x: 0.3461021, y: 0.43088964}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2389234013605684597a89ca5526a71a
+      internalID: -1740987081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 386
+        width: 54
+        height: 64
+      alignment: 9
+      pivot: {x: 0.33163312, y: 0.48816156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f2583aa063dcb6439d4a0ef344b80d6
+      internalID: 954582994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel4
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 387
+        width: 60
+        height: 59
+      alignment: 9
+      pivot: {x: 0.4179212, y: 0.52568287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0420c72e4520a1c4b836b09a955e87b1
+      internalID: -1202585702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel5
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 388
+        width: 60
+        height: 56
+      alignment: 9
+      pivot: {x: 0.38003844, y: 0.56088257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09eaca48c5bde9b4497190f8eb520da9
+      internalID: -1498211626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 388
+        width: 53
+        height: 56
+      alignment: 9
+      pivot: {x: 0.3713419, y: 0.5777942}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56880ff41067c3b4f9821881320af3f9
+      internalID: 494414352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel7
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 388
+        width: 51
+        height: 56
+      alignment: 9
+      pivot: {x: 0.35983458, y: 0.55411804}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1110477374656dd4c95254fea07ca680
+      internalID: -1464518532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel8
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 388
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.39345503, y: 0.5304413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d9dd5528bbf5a43a9458047ceac01a
+      internalID: 1225150545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idel9
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 387
+        width: 63
+        height: 62
+      alignment: 9
+      pivot: {x: 0.42483568, y: 0.5091651}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77525b0ebe19e8749b48e52e0dd3fc7b
+      internalID: -76800043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk11
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 282
+        width: 63
+        height: 55
+      alignment: 9
+      pivot: {x: 0.45479977, y: 0.6040533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff8c48f338bd00247862eb05cc03d4ac
+      internalID: 1897913607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk12
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 289
+        width: 63
+        height: 63
+      alignment: 9
+      pivot: {x: 0.44171834, y: 0.55463904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5306830bd27d62d4fa760972e0c79586
+      internalID: -1398496919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk13
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 292
+        width: 55
+        height: 64
+      alignment: 9
+      pivot: {x: 0.3873441, y: 0.5322714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78136109ddefc7449993c4df3b7ef86
+      internalID: 968015998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk14
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 293
+        width: 50
+        height: 69
+      alignment: 9
+      pivot: {x: 0.36689973, y: 0.45011216}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7534a0f8e4a3b9c46a21e5febcad922d
+      internalID: 1350229200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 294
+        width: 63
+        height: 71
+      alignment: 9
+      pivot: {x: 0.36886597, y: 0.4030349}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bc03fc8d64e854a8c91fec6717fba7
+      internalID: 570732787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk16
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 280
+        width: 101
+        height: 92
+      alignment: 9
+      pivot: {x: 0.6295109, y: 0.3578196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31e4a45798d2ef4197e48984ddcecd9
+      internalID: 1606256292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk17
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 278
+        width: 101
+        height: 86
+      alignment: 9
+      pivot: {x: 0.6022457, y: 0.33989486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149a28f8b106e9e4ebb697c875c2b64f
+      internalID: 1365344183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 172
+        width: 121
+        height: 92
+      alignment: 9
+      pivot: {x: 0.4765668, y: 0.38112375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf23332c64df2b48b060dc3d93ba26f
+      internalID: -765227660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 180
+        width: 61
+        height: 59
+      alignment: 9
+      pivot: {x: 0.4021634, y: 0.47155088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd01a8cdb281bd46b5486b834627570
+      internalID: -1797728719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk111
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 181
+        width: 51
+        height: 56
+      alignment: 9
+      pivot: {x: 0.34641102, y: 0.54662544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c143aba4c99454492a35a62d8c0303
+      internalID: -2118752831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk1111
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 181
+        width: 66
+        height: 56
+      alignment: 9
+      pivot: {x: 0.3980232, y: 0.5546311}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92beaf940eccdc43aa8df004738de67
+      internalID: 1375014043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atk11111
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 180
+        width: 69
+        height: 67
+      alignment: 9
+      pivot: {x: 0.41723588, y: 0.46955916}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4a9f0e16399264eafa66dc2b0b5a61
+      internalID: 1268571642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 62
+        height: 59
+      alignment: 9
+      pivot: {x: 0.45248222, y: 0.5363719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec7d3111ca655b44acb0593472c7937
+      internalID: -493605627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 99
+        width: 49
+        height: 59
+      alignment: 9
+      pivot: {x: 0.39979225, y: 0.583223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0056fab3bb4434f865d8b1d0b62709
+      internalID: -627690549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_2
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 102
+        width: 72
+        height: 64
+      alignment: 9
+      pivot: {x: 0.39997756, y: 0.5409186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493a2bdebac45204dafc98a6d6ba03fc
+      internalID: -541288293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_3
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 93
+        width: 182
+        height: 78
+      alignment: 9
+      pivot: {x: 0.4136671, y: 0.44124594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aaafb094acda614794ed85d420b173e
+      internalID: 2050802293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_4
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 96
+        width: 125
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5934495, y: 0.4539098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2627f5ece556b4fb8d9986d4ba4873
+      internalID: 158614922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_5
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 9
+        width: 95
+        height: 61
+      alignment: 9
+      pivot: {x: 0.43239442, y: 0.35961717}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a55ab12addcc2043aee962aeab77790
+      internalID: 1302011452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_6
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 5
+        width: 65
+        height: 60
+      alignment: 9
+      pivot: {x: 0.46157438, y: 0.4762132}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3184614ba811c4ba7f85ce6216c429
+      internalID: -512971715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_7
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 2
+        width: 57
+        height: 61
+      alignment: 9
+      pivot: {x: 0.43347633, y: 0.5409452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb1673dfe34f41448a0449c9252a632
+      internalID: 32039483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_8
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 4
+        width: 50
+        height: 58
+      alignment: 9
+      pivot: {x: 0.3786853, y: 0.5676703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfed3af79b185734b89a353cd2698110
+      internalID: -1820862305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_9
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 5
+        width: 63
+        height: 58
+      alignment: 9
+      pivot: {x: 0.38672748, y: 0.5615187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45998de98b68f6c4c92897d18088899b
+      internalID: 1345917208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angel1_dragonArmor_normal_10
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 6
+        width: 67
+        height: 65
+      alignment: 9
+      pivot: {x: 0.43609393, y: 0.5000001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bcbb111327fdf4dbedd36ab4363e79
+      internalID: 425120400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      angel1_dragonArmor_normal_0: -493605627
+      angel1_dragonArmor_normal_1: -627690549
+      angel1_dragonArmor_normal_10: 425120400
+      angel1_dragonArmor_normal_2: -541288293
+      angel1_dragonArmor_normal_3: 2050802293
+      angel1_dragonArmor_normal_4: 158614922
+      angel1_dragonArmor_normal_5: 1302011452
+      angel1_dragonArmor_normal_6: -512971715
+      angel1_dragonArmor_normal_7: 32039483
+      angel1_dragonArmor_normal_8: -1820862305
+      angel1_dragonArmor_normal_9: 1345917208
+      atk11: 1897913607
+      atk111: -2118752831
+      atk1111: 1375014043
+      atk11111: 1268571642
+      atk12: -1398496919
+      atk13: 968015998
+      atk14: 1350229200
+      atk15: 570732787
+      atk16: 1606256292
+      atk17: 1365344183
+      atk18: -765227660
+      atk19: -1797728719
+      idel1: -1540484902
+      idel2: -1740987081
+      idel3: 954582994
+      idel4: -1202585702
+      idel5: -1498211626
+      idel6: 494414352
+      idel7: -1464518532
+      idel8: 1225150545
+      idel9: -76800043
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
