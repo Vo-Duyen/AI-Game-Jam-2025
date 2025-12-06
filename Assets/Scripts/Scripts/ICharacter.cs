@@ -5,8 +5,8 @@ using UnityEngine;
 
 public interface ICharacter
 {
-    public T GetType<T>() where T : Enum;
-    public bool IsType<T>(T type) where T : Enum;
+    T GetType<T>() where T : Enum;
+    bool IsType<T>(T type) where T : Enum;
     public void ChangeType<T>(T type) where T : Enum;
     public bool IsState<T>(T state) where T : Enum;
     public void ChangeState<T>(T state) where T : Enum;
@@ -27,5 +27,7 @@ public interface IPlayer : ICharacter
 
 public interface IEnemy : ICharacter
 {
-    
+    void Move(Vector3 direction);
+    void Patrol(Vector3 targetPoint);
+    void Follow(Vector3 targetPoint);
 }
