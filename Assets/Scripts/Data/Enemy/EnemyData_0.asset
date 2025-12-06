@@ -24,8 +24,9 @@ MonoBehaviour:
   typeEnemy: 0
   maxHealth: 100
   distanceCheckGround: 0.55
-  moveSpeed: 1
+  moveSpeed: 2
+  runSpeeed: 3
   jumpForce: 500
   patrolRange: 5
-  attackFollow: 0
-  attackRange: 0
+  attackFollowRange: 4
+  attackRange: 2

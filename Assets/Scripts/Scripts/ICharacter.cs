@@ -5,29 +5,30 @@ using UnityEngine;
 
 public interface ICharacter
 {
+    Transform GetTransform();
     T GetType<T>() where T : Enum;
     bool IsType<T>(T type) where T : Enum;
-    public void ChangeType<T>(T type) where T : Enum;
-    public bool IsState<T>(T state) where T : Enum;
-    public void ChangeState<T>(T state) where T : Enum;
-    public void Reverse();
-    public void Jump();
-    public void Run();
-    public void Attack();
-    public void GetHit();
-    public void Die();
+    void ChangeType<T>(T type) where T : Enum;
+    bool IsState<T>(T state) where T : Enum;
+    void ChangeState<T>(T state) where T : Enum;
+    void Reverse();
+    void Jump();
+    void Run();
+    void Attack();
+    void GetHit();
+    void Die();
 }
 
 public interface IPlayer : ICharacter
 {
-    public void Skill1();
-    public void Skill2();
-    public void Skill3();
+    void Skill1();
+    void Skill2();
+    void Skill3();
 }
 
 public interface IEnemy : ICharacter
 {
-    void Move(Vector3 direction);
-    void Patrol(Vector3 targetPoint);
-    void Follow(Vector3 targetPoint);
+    void Move(Vector3 direction, float speed);
+    void Patrol();
+    void Follow();
 }

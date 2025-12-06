@@ -255,9 +255,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306390345}
-  - component: {fileID: 1306390347}
   - component: {fileID: 1306390346}
   - component: {fileID: 1306390348}
+  - component: {fileID: 1306390349}
+  - component: {fileID: 1306390350}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -274,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 1306390342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8, z: 0}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -308,56 +309,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1306390347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306390342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5361ec6c77648d48527a55ab4883c2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1306390346}
-    - {fileID: 11400000, guid: 15ec4f17bef51384fbf72b36724f316f, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _type
-      Entry: 3
-      Data: 0
-    - Name: _state
-      Entry: 3
-      Data: 0
-    - Name: _rb
-      Entry: 10
-      Data: 0
-    - Name: _enemyData
-      Entry: 10
-      Data: 1
-    - Name: _savePoint
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -999
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!61 &1306390348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -403,6 +354,78 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1306390349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306390342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17c35084091455985dcd1b5dac345be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1306390346}
+    - {fileID: 1306390350}
+    - {fileID: 11400000, guid: 15ec4f17bef51384fbf72b36724f316f, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _type
+      Entry: 3
+      Data: 0
+    - Name: _state
+      Entry: 3
+      Data: 0
+    - Name: _rb
+      Entry: 10
+      Data: 0
+    - Name: _animation
+      Entry: 10
+      Data: 1
+    - Name: _enemyData
+      Entry: 10
+      Data: 2
+    - Name: _animMove
+      Entry: 6
+      Data: 
+    - Name: _animRun
+      Entry: 6
+      Data: 
+    - Name: _animJump
+      Entry: 6
+      Data: 
+    - Name: _animAttack
+      Entry: 6
+      Data: 
+    - Name: _animGetHit
+      Entry: 6
+      Data: 
+    - Name: _animDeath
+      Entry: 6
+      Data: 
+--- !u!111 &1306390350
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306390342}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1555182754
 GameObject:
   m_ObjectHideFlags: 0
