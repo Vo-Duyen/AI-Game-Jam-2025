@@ -73,6 +73,10 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
                 break;
             case State.Patrol:
                 Patrol();
+                if (IsHavePlayer())
+                {
+                    ChangeState(State.Follow);
+                }
                 break;
             case State.Follow:
                 Follow();
