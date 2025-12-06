@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -9,6 +10,34 @@ where TEnemyType : Enum
 {
     [OdinSerialize] protected TEnemyType _type;
     [OdinSerialize] protected TState _state;
+    [OdinSerialize] protected Rigidbody2D _rb;
+    [OdinSerialize] protected EnemyData _enemyData;
+
+    [Button]
+    protected virtual void GetRigidbody()
+    {
+        if (transform.TryGetComponent<Rigidbody2D>(out var rb))
+        {
+            _rb = rb;
+            return;
+        }
+        Queue<Transform> queue = new Queue<Transform>();
+        queue.Enqueue(transform);
+        while (queue.Count > 0)
+        {
+            var target = queue.Dequeue();
+            if (target.TryGetComponent<Rigidbody2D>(out var rbChild))
+            {
+                _rb = rbChild;
+                return;
+            }
+
+            foreach (Transform child in target)
+            {
+                queue.Enqueue(child);
+            }
+        }
+    }
 
     public virtual T GetType<T>() where T : Enum
     {
@@ -47,7 +76,17 @@ where TEnemyType : Enum
     public virtual void ChangeState<T>(T state) where T : Enum
     {
         if (typeof(T) != typeof(TState)) return;
+        if (state is TState s)
+        {
+            _state = s;
+        }
     }
+
+    private void Update()
+    {
+        Run();
+    }
+
 
     [Button]
     public virtual void Reverse()
@@ -58,7 +97,9 @@ where TEnemyType : Enum
     [Button]
     public virtual void Jump()
     {
-        
+        if (_rb == null) return;
+        if (_enemyData == null) return;
+        _rb.AddForce(new Vector2(0f, _enemyData.jumpForce));
     }
 
     [Button]

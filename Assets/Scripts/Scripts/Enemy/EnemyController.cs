@@ -10,7 +10,8 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
     public enum State
     {
         Idle,
-        Walk,
+        Patrol,
+        
     }
 
     public override void ChangeState<T>(T state)
@@ -20,7 +21,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
         {
             case State.Idle:
                 break;
-            case State.Walk:
+            case State.Patrol:
                 break;
         }
     }
