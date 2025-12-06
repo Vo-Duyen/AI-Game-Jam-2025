@@ -23,5 +23,9 @@ MonoBehaviour:
     SerializationNodes: []
   typeEnemy: 0
   maxHealth: 100
-  moveSpeed: 5
-  jumpForce: 10
+  distanceCheckGround: 0.55
+  moveSpeed: 1
+  jumpForce: 500
+  patrolRange: 5
+  attackFollow: 0
+  attackRange: 0
