@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public interface ICharacter
 {
-    public T GetType<T>();
-    public void SetType<T>(T type);
-    public T GetState<T>();
-    public void SetState<T>(T state);
+    public T GetType<T>() where T : Enum;
+    public bool IsType<T>(T type) where T : Enum;
+    public void ChangeType<T>(T type) where T : Enum;
+    public bool IsState<T>(T state) where T : Enum;
+    public void ChangeState<T>(T state) where T : Enum;
     public void Reverse();
     public void Jump();
     public void Run();
@@ -25,5 +27,5 @@ public interface IPlayer : ICharacter
 
 public interface IEnemy : ICharacter
 {
-    public void Skill();
+    
 }
