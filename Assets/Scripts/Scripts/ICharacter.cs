@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Character
+public interface ICharacter
 {
     public T GetType<T>();
     public void SetType<T>(T type);
@@ -16,14 +16,14 @@ public interface Character
     public void Die();
 }
 
-public interface Player : Character
+public interface IPlayer : ICharacter
 {
     public void Skill1();
     public void Skill2();
     public void Skill3();
 }
 
-public interface Enemy : Character
+public interface IEnemy : ICharacter
 {
     public void Skill();
 }
