@@ -37,8 +37,8 @@ public class PlayerController : TimeControlled, IPlayer
     private void Update()
     {
         if (_skill1Timer > 0) _skill1Timer -= Time.deltaTime;
-        if (_skill1Timer > 0) _skill1Timer -= Time.deltaTime;
-        if (_skill1Timer > 0) _skill1Timer -= Time.deltaTime;
+        if (_skill2Timer > 0) _skill2Timer -= Time.deltaTime;
+        if (_skill3Timer > 0) _skill3Timer -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Q) && _skill1Timer <= 0) ((IPlayer)this).Skill1();
         if (Input.GetKeyUp(KeyCode.Q))
@@ -140,10 +140,18 @@ public class PlayerController : TimeControlled, IPlayer
     {
         
     }
-    void ICharacter.Die() { }
+    void ICharacter.Die() 
+    {
+
+    }
     T ICharacter.GetType<T>() { throw new System.NotImplementedException(); }
     bool ICharacter.IsType<T>(T type) { throw new System.NotImplementedException(); }
     void ICharacter.ChangeType<T>(T type) { }
     bool ICharacter.IsState<T>(T state) { throw new System.NotImplementedException(); }
     void ICharacter.ChangeState<T>(T state) { }
+
+    public Transform GetTransform()
+    {
+        return this.transform;
+    }
 }
