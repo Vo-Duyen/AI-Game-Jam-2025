@@ -202,7 +202,7 @@ where TEnemyType : Enum
     public virtual void GetHit()
     {
         
-    }
+    } 
 
     [Button]
     public virtual void Die()
