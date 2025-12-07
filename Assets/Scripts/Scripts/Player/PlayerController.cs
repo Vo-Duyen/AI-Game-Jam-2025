@@ -12,31 +12,32 @@ using UnityEngine.UI;
 
 public class PlayerController : TimeControlled, IPlayer
 {
-    [Header("Movement Components")]
-    [SerializeField] private PlayerMovement _playerMovement;
+    [Header("Movement Components")] [SerializeField]
+    private PlayerMovement _playerMovement;
+
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private Animator _animator;
     [SerializeField] private AnimationClip _animGetHit;
     [SerializeField] private AnimationClip _animDie;
 
-    [Header("Stats")]
-    [SerializeField] private float _moveSpeed = 5f;
+    [Header("Stats")] [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 8f;
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private float _curHealth = 100f;
     [SerializeField] private float _range;
-    [Header("Skill 2: TimePiece (Q)")]
-    [SerializeField] private TimePiece _timePiecePrefab;
 
-    [Header("Skill 3: Chronobreak (R)")]
-    [SerializeField] private SpriteRenderer _ghostVFX;
+    [Header("Skill 2: TimePiece (Q)")] [SerializeField]
+    private TimePiece _timePiecePrefab;
+
+    [Header("Skill 3: Chronobreak (R)")] [SerializeField]
+    private SpriteRenderer _ghostVFX;
+
     [SerializeField] private GameObject _explosionVFX;
     [SerializeField] private float _ultRadius = 3.5f;
     [SerializeField] private int _ultDamage = 150;
 
-    [Header("Countdown")]
-    [SerializeField] private float _skill1Cooldown = 5f;
+    [Header("Countdown")] [SerializeField] private float _skill1Cooldown = 5f;
     [SerializeField] private float _skill2Cooldown = 3f;
     [SerializeField] private float _skill3Cooldown = 10f;
     [SerializeField] private float _attackCooldown = 0.5f;
@@ -44,11 +45,11 @@ public class PlayerController : TimeControlled, IPlayer
     [SerializeField] private Image _skill2CooldownImg;
     [SerializeField] private Image _skill3CooldownImg;
 
-    [SerializeField] protected List<SpriteRenderer> _arrSprites = new  List<SpriteRenderer>();
+    [SerializeField] protected List<SpriteRenderer> _arrSprites = new List<SpriteRenderer>();
     [SerializeField] protected float _animGetHitTime = 0.1f;
     [SerializeField] private Image healthBarImg;
     protected ObserverManager<GameEvent> observer => ObserverManager<GameEvent>.Instance;
-    
+
     private float _skill1Timer;
     private float _skill2Timer;
     private float _skill3Timer;
@@ -74,6 +75,7 @@ public class PlayerController : TimeControlled, IPlayer
                 {
                     _curHealth = 0;
                 }
+
                 UpdateHealthBar();
                 if (_curHealth <= 0)
                 {
@@ -82,6 +84,15 @@ public class PlayerController : TimeControlled, IPlayer
             }
         }
     }
+
+    public void SetDie()
+    {
+        GetHit();
+        _curHealth = 0;
+        UpdateHealthBar();
+        ObserverManager<UIEventID>.Instance.PostEvent(UIEventID.OnLoseGame);
+    }
+
 
     private void Update()
     {
@@ -160,7 +171,7 @@ public class PlayerController : TimeControlled, IPlayer
         {
             healthBarImg.fillAmount = _curHealth / _maxHealth;
         }
-    }    
+    }
 
     public override void TimeUpdate()
     {
@@ -181,7 +192,6 @@ public class PlayerController : TimeControlled, IPlayer
 
     void IPlayer.Skill2()
     {
-
         SoundManager.Instance.PlayFX(SoundId.Skill2);
         Vector3 mouseScreenPos = Input.mousePosition;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
@@ -269,9 +279,18 @@ public class PlayerController : TimeControlled, IPlayer
         }
     }
 
-    void ICharacter.Reverse() { }
-    void ICharacter.Jump() { }
-    void ICharacter.Run() { }
+    void ICharacter.Reverse()
+    {
+    }
+
+    void ICharacter.Jump()
+    {
+    }
+
+    void ICharacter.Run()
+    {
+    }
+
     public void Attack()
     {
         SoundManager.Instance.PlayFX(SoundId.KnifeAttack);
@@ -287,6 +306,7 @@ public class PlayerController : TimeControlled, IPlayer
             }
         }
     }
+
     public void GetHit()
     {
         SoundManager.Instance.PlayFX(SoundId.GetHit1);
@@ -296,6 +316,7 @@ public class PlayerController : TimeControlled, IPlayer
         {
             _arrSprites[i].color = red;
         }
+
         OnDelayCall(_animGetHitTime, () =>
         {
             for (var i = 0; i < _arrSprites.Count; ++i)
@@ -304,34 +325,50 @@ public class PlayerController : TimeControlled, IPlayer
             }
         });
     }
+
     public void Die()
     {
         SoundManager.Instance.PlayFX(SoundId.EnemyDie);
         if (_animDie == null) return;
         _animator.Play(_animDie.name);
-        
+
         // TODO: Fix late
-        OnDelayCall(_animDie.length + 0.1f, () =>
-        {
-            PoolingManager.Despawn(gameObject);
-        });
+        OnDelayCall(_animDie.length + 0.1f, () => { PoolingManager.Despawn(gameObject); });
     }
-    T ICharacter.GetType<T>() { throw new System.NotImplementedException(); }
-    bool ICharacter.IsType<T>(T type) { throw new System.NotImplementedException(); }
-    void ICharacter.ChangeType<T>(T type) { }
-    bool ICharacter.IsState<T>(T state) { throw new System.NotImplementedException(); }
-    void ICharacter.ChangeState<T>(T state) { }
+
+    T ICharacter.GetType<T>()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    bool ICharacter.IsType<T>(T type)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    void ICharacter.ChangeType<T>(T type)
+    {
+    }
+
+    bool ICharacter.IsState<T>(T state)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    void ICharacter.ChangeState<T>(T state)
+    {
+    }
 
     public Transform GetTransform()
     {
         return this.transform;
     }
-    
+
     protected virtual void OnDelayCall(float timeDelay, Action callback)
     {
         StartCoroutine(IEDelayCall(timeDelay, callback));
     }
-    
+
     protected virtual IEnumerator IEDelayCall(float timeDelay, Action callback)
     {
         yield return WaitForSecondCache.Get(timeDelay);
@@ -343,7 +380,7 @@ public class PlayerController : TimeControlled, IPlayer
         Gizmos.color = Color.red;
         DrawCircle(_hitPoint.position, _range, 60);
     }
-    
+
     protected virtual void DrawCircle(Vector3 center, float radius, int segments)
     {
         var angleStep = 360f / segments;

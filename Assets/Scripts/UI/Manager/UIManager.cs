@@ -23,7 +23,6 @@ public class UIManager : Singleton<UIManager>
 
     protected override void Awake()
     {
-        DontDestroy = true;
         base.Awake();
     }
 
