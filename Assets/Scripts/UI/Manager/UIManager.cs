@@ -21,10 +21,20 @@ public class UIManager : Singleton<UIManager>
 
     private ObserverManager<UIEventID> Observer => ObserverManager<UIEventID>.Instance;
 
+    protected override void Awake()
+    {
+        DontDestroy = true;
+        base.Awake();
+    }
+
     private void OnEnable()
     {
         RegisterEvents();
         // ShowStartScreen();
+        // ShowStartScreen();
+        SoundManager.Instance.StopFX(SoundId.Background1);
+        SoundManager.Instance.PlayFX(SoundId.Background2, true);
+        SoundManager.Instance.PlayFX(SoundId.Wind);
     }
 
     private void OnDisable()

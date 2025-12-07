@@ -125,6 +125,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void GetHit()
     {
+        base.GetHit();
         var red = Color.red;
         red.a = 0.5f;
         for (var i = 0; i < _arrSprites.Count; ++i)
@@ -143,6 +144,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void Attack()
     {
+        base.Attack();
         RotateWithTarget(_targetPoint);
         _animator.Play(_animAttack.name);
         

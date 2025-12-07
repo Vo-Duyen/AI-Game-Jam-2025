@@ -212,7 +212,7 @@ where TEnemyType : Enum
         var size = Physics2D.RaycastNonAlloc(transform.position, direct, _hits, _enemyData.distanceCheckGround);
         for (var i = 0; i < size; ++i)
         {
-            if (_hits[i].transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (_hits[i].transform.gameObject.layer == LayerMask.NameToLayer("Ground") || _hits[i].transform.TryGetComponent<IEnemy>(out var enemy) && enemy != (IEnemy)this)
             {
                 return false;
             }
@@ -312,7 +312,7 @@ where TEnemyType : Enum
     [Button]
     public virtual void Attack()
     {
-        
+        SoundManager.Instance.PlayFX(SoundId.KnifeAttack);
     }
 
     protected virtual void HitPlayer()
@@ -332,12 +332,13 @@ where TEnemyType : Enum
     [Button]
     public virtual void GetHit()
     {
-        
+        SoundManager.Instance.PlayFX(SoundId.GetHit2);
     } 
 
     [Button]
     public virtual void Die()
     {
+        SoundManager.Instance.PlayFX(SoundId.EnemyDie);
         _animator.Play(_animAttack.name);
         OnDelayCall(_animAttack.length + 0.1f, () =>
         {
