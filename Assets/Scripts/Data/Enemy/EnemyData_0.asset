@@ -31,4 +31,4 @@ MonoBehaviour:
   patrolRange: 5
   attackFollowRange: 5
   attackRange: 3
-  getHitRange: 2
+  getHitRange: 1

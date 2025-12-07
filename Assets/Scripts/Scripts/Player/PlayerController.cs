@@ -7,6 +7,7 @@ using LongNC;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class PlayerController : TimeControlled, IPlayer
 {
@@ -37,14 +38,20 @@ public class PlayerController : TimeControlled, IPlayer
     [SerializeField] private float _skill1Cooldown = 5f;
     [SerializeField] private float _skill2Cooldown = 3f;
     [SerializeField] private float _skill3Cooldown = 10f;
-    
+    [SerializeField] private float _attackCooldown = 0.5f;
+    [SerializeField] private Image _skill1CooldownImg;
+    [SerializeField] private Image _skill2CooldownImg;
+    [SerializeField] private Image _skill3CooldownImg;
+
     [SerializeField] protected List<SpriteRenderer> _arrSprites = new  List<SpriteRenderer>();
-    [SerializeField] protected float _animGetHitTime = 0.1f; 
+    [SerializeField] protected float _animGetHitTime = 0.1f;
+    [SerializeField] private Image healthBarImg;
     protected ObserverManager<GameEvent> observer => ObserverManager<GameEvent>.Instance;
     
     private float _skill1Timer;
     private float _skill2Timer;
     private float _skill3Timer;
+    private float _attackTimer;
     private float _horizontal;
     [SerializeField] private Transform _hitPoint;
     protected Collider2D[] _cols = new Collider2D[10];
@@ -66,6 +73,7 @@ public class PlayerController : TimeControlled, IPlayer
                 {
                     _curHealth = 0;
                 }
+                UpdateHealthBar();
             }
         }
     }
@@ -75,6 +83,10 @@ public class PlayerController : TimeControlled, IPlayer
         if (_skill1Timer > 0) _skill1Timer -= Time.deltaTime;
         if (_skill2Timer > 0) _skill2Timer -= Time.deltaTime;
         if (_skill3Timer > 0) _skill3Timer -= Time.deltaTime;
+
+        if (_attackTimer > 0) _attackTimer -= Time.deltaTime;
+
+        UpdateCooldownUI();
 
         if (Input.GetKeyDown(KeyCode.Q) && _skill1Timer <= 0) ((IPlayer)this).Skill1();
         if (Input.GetKeyUp(KeyCode.Q))
@@ -95,14 +107,27 @@ public class PlayerController : TimeControlled, IPlayer
             _skill3Timer = _skill3Cooldown;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _attackTimer <= 0)
         {
             Attack();
+            _attackTimer = _attackCooldown;
         }
 
         UpdateGhostVisual();
     }
-    
+
+    private void UpdateCooldownUI()
+    {
+        if (_skill1CooldownImg != null)
+            _skill1CooldownImg.fillAmount = _skill1Timer / _skill1Cooldown;
+
+        if (_skill2CooldownImg != null)
+            _skill2CooldownImg.fillAmount = _skill2Timer / _skill2Cooldown;
+
+        if (_skill3CooldownImg != null)
+            _skill3CooldownImg.fillAmount = _skill3Timer / _skill3Cooldown;
+    }
+
     [FoldoutGroup("Setup arr sprites"), Button]
     protected virtual void GetSprites()
     {
@@ -123,6 +148,14 @@ public class PlayerController : TimeControlled, IPlayer
             }
         }
     }
+
+    public void UpdateHealthBar()
+    {
+        if (healthBarImg != null)
+        {
+            healthBarImg.fillAmount = _curHealth / _maxHealth;
+        }
+    }    
 
     public override void TimeUpdate()
     {
@@ -159,6 +192,8 @@ public class PlayerController : TimeControlled, IPlayer
         transform.position = targetPos;
         _playerMovement.Rigidbody2D.velocity = Vector2.zero;
         Velocity = Vector2.zero;
+        _skill1Cooldown = 0f;
+        _skill2Cooldown = 0f;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _ultRadius);
         foreach (var hit in hits)
