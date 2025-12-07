@@ -105,7 +105,7 @@ public class PlayerController : TimeControlled, IPlayer
         UpdateCooldownUI();
 
         if (Input.GetKeyDown(KeyCode.Q) && _skill1Timer <= 0) ((IPlayer)this).Skill1();
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.Q) && _skill1Timer <= 0)
         {
             TimeController.Instance.StopRewind();
             _skill1Timer = _skill1Cooldown;
