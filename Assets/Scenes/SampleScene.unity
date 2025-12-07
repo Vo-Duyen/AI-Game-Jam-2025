@@ -162,7 +162,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 15ec4f17bef51384fbf72b36724f316f, type: 2}
     - {fileID: 1160040430}
     - {fileID: 7400000, guid: 3094a907082cc5d42b4ae48f6944a0ba, type: 2}
-    - {fileID: 7400000, guid: 4b5e4c6c0f6007544b427c513505e72b, type: 2}
+    - {fileID: 7400000, guid: deebed3331328c444a9f4e74f7e947a9, type: 2}
     - {fileID: 1250770422}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -502,12 +502,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1985568096, guid: 7863d1e99e539864ca04d0da7b363cef, type: 3}
+  m_Sprite: {fileID: 1561763332, guid: 7863d1e99e539864ca04d0da7b363cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.47, y: 0.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 895522155}
   - component: {fileID: 895522154}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,7 +890,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &895522155
@@ -1323,7 +1323,7 @@ Transform:
   m_GameObject: {fileID: 1250770421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.36, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1531,7 +1531,7 @@ Transform:
   m_GameObject: {fileID: 2075635026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.08, y: -0.15, z: 0}
+  m_LocalPosition: {x: -0.8, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
