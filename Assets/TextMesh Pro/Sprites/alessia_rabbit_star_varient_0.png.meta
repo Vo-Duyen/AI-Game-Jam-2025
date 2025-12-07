@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7863d1e99e539864ca04d0da7b363cef
+guid: 5be56a333b844ec4b834c4fc945bbb68
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angel1_0
+      name: alessia_rabbit_star_varient_0_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 338
-        width: 47
-        height: 77
+        x: 0
+        y: 108
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aa83d46e11960045bac9c3c7568dbee
-      internalID: -1985568096
+      spriteID: 7e47a15f464626c47a26d8afde004d66
+      internalID: -72480375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_1
+      name: alessia_rabbit_star_varient_0_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 337
-        width: 50
-        height: 76
+        x: 32
+        y: 108
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 024ca51d4da69fe4e9892085059790b0
-      internalID: -55580062
+      spriteID: b2037aa2cab6efe46bb72f63d9a45a50
+      internalID: -13291840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_2
+      name: alessia_rabbit_star_varient_0_2
       rect:
         serializedVersion: 2
-        x: 103
-        y: 338
-        width: 52
-        height: 65
+        x: 64
+        y: 108
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf0f39e4fe943034c89f74cb6bd1e14a
-      internalID: 1348807642
+      spriteID: 361811cfcf80726418b21d1a2c8f6ff4
+      internalID: 482044900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_3
+      name: alessia_rabbit_star_varient_0_3
       rect:
         serializedVersion: 2
-        x: 157
-        y: 339
-        width: 55
-        height: 58
+        x: 96
+        y: 108
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03bfad5ca49e1e0419ecfb5d85d47338
-      internalID: -661853729
+      spriteID: 1ec47945bda92ac4b9c26590dbbc8002
+      internalID: -1001771556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_4
+      name: alessia_rabbit_star_varient_0_4
       rect:
         serializedVersion: 2
-        x: 214
-        y: 343
-        width: 58
-        height: 54
+        x: 128
+        y: 108
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d78ea36096b3274f8222421e2614ba6
-      internalID: 451904759
+      spriteID: befe80e6788f9ef47a77468d4bfb397b
+      internalID: -1026895209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_5
+      name: alessia_rabbit_star_varient_0_5
       rect:
         serializedVersion: 2
-        x: 274
-        y: 346
-        width: 54
-        height: 52
+        x: 160
+        y: 108
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26789a71148ba3340b0f728dbd82ea94
-      internalID: 1910233432
+      spriteID: daf540bb258dc924bbf5c0f9f4032e90
+      internalID: -1124398501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_6
+      name: alessia_rabbit_star_varient_0_6
       rect:
         serializedVersion: 2
-        x: 330
-        y: 347
-        width: 53
-        height: 50
+        x: 0
+        y: 76
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a75dcee85b773d3449524af71947c51b
-      internalID: 1615432850
+      spriteID: 370797e33f35505409c9409676f0c03e
+      internalID: -2139429485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_7
+      name: alessia_rabbit_star_varient_0_7
       rect:
         serializedVersion: 2
-        x: 385
-        y: 344
-        width: 60
-        height: 53
+        x: 32
+        y: 76
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 860aa6ee794228f49932d8f23b2c2b60
-      internalID: -1525303951
+      spriteID: 43a49f430cce79543a1511570cdf11f2
+      internalID: 394155531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_8
+      name: alessia_rabbit_star_varient_0_8
       rect:
         serializedVersion: 2
-        x: 447
-        y: 341
-        width: 62
-        height: 64
+        x: 64
+        y: 76
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +292,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f70666c48199a42b2dcea5cec4f67b
-      internalID: -1370234799
+      spriteID: b4d84f59af2a11b4f8357fd56c0300da
+      internalID: -737302304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_10
+      name: alessia_rabbit_star_varient_0_9
       rect:
         serializedVersion: 2
-        x: 69
-        y: 248
-        width: 58
-        height: 80
+        x: 96
+        y: 76
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +313,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a11671d980c2d954c9c8c8d219c4eaac
-      internalID: 2005904679
+      spriteID: da93265b76400f74294cc1aa8e379b2d
+      internalID: -2011690980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_11
+      name: alessia_rabbit_star_varient_0_10
       rect:
         serializedVersion: 2
-        x: 129
-        y: 251
-        width: 52
-        height: 83
+        x: 128
+        y: 76
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be1a28d538e3c1b46a0e6dd105ca5e56
-      internalID: 1841651650
+      spriteID: c64eb29e8d0d72f4397251502aee2752
+      internalID: 1005262905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_12
+      name: alessia_rabbit_star_varient_0_11
       rect:
         serializedVersion: 2
-        x: 183
-        y: 253
-        width: 57
-        height: 65
+        x: 160
+        y: 76
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +355,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da4de667db42b2948b40ab1894d4791c
-      internalID: -295490971
+      spriteID: b6b6f72d51adead47a22de34889e0844
+      internalID: 1578489369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_13
+      name: alessia_rabbit_star_varient_0_12
       rect:
         serializedVersion: 2
-        x: 242
-        y: 254
-        width: 56
-        height: 60
+        x: 0
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +376,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 212e2dde449ea9644bbcb8440d8ad526
-      internalID: 408856874
+      spriteID: 73933db5f9f074d46b6966615e957a7b
+      internalID: -629110225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_14
+      name: alessia_rabbit_star_varient_0_13
       rect:
         serializedVersion: 2
-        x: 300
-        y: 246
-        width: 96
-        height: 78
+        x: 32
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +397,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 126d81b57ac5a1e4c82672f0ba74ab86
-      internalID: -248753507
+      spriteID: 449a006aad135ad4299d3f55242c118f
+      internalID: 1962892342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_16
+      name: alessia_rabbit_star_varient_0_14
       rect:
         serializedVersion: 2
-        x: 3
-        y: 241
-        width: 60
-        height: 58
+        x: 64
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +418,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a38a0798ecd00f643b24da6bc7dbf260
-      internalID: -1786660273
+      spriteID: aa3dda7b58fbe7442a2ccd4f98a041b4
+      internalID: 12047628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_17
+      name: alessia_rabbit_star_varient_0_15
       rect:
         serializedVersion: 2
-        x: 406
-        y: 242
-        width: 86
-        height: 66
+        x: 96
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +439,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b4ed4894960807439f3b4055938b07e
-      internalID: -1001350506
+      spriteID: 051c96caf6bfacc4f9ffe36bebd6b44c
+      internalID: -1314764350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_18
+      name: alessia_rabbit_star_varient_0_16
       rect:
         serializedVersion: 2
-        x: 2
-        y: 164
-        width: 87
-        height: 64
+        x: 128
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +460,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e2f14cfc242e7143951bac4bbcfb21c
-      internalID: 653433527
+      spriteID: 276498bd637223f409bdf3ac05c33526
+      internalID: -462822660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_19
+      name: alessia_rabbit_star_varient_0_17
       rect:
         serializedVersion: 2
-        x: 91
-        y: 160
-        width: 65
-        height: 57
+        x: 160
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,20 +481,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd84d9f83a313bb42b1e9d513843079a
-      internalID: -838324699
+      spriteID: cd23bf508606089408f041d15f949fd2
+      internalID: 1092565137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_20
+      name: alessia_rabbit_star_varient_0_18
       rect:
         serializedVersion: 2
-        x: 158
-        y: 165
-        width: 53
-        height: 50
+        x: 0
+        y: 12
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,20 +502,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcae0725f3f18494ba2b0c6cd54bccb5
-      internalID: -1072884314
+      spriteID: 127784515b335334da5f9fd87894cabb
+      internalID: -2134129642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_21
+      name: alessia_rabbit_star_varient_0_19
       rect:
         serializedVersion: 2
-        x: 214
-        y: 163
-        width: 60
-        height: 53
+        x: 32
+        y: 12
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,20 +523,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c342461f58518834c88091a8225e3203
-      internalID: -1542895865
+      spriteID: 7967b8c3b5e1b6a409822fb8b2ed46e9
+      internalID: 684787339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_22
+      name: alessia_rabbit_star_varient_0_20
       rect:
         serializedVersion: 2
-        x: 276
-        y: 160
-        width: 62
-        height: 64
+        x: 64
+        y: 12
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,20 +544,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0b3c7cb2b188e14d9f36fed8f0cbc53
-      internalID: -1269122703
+      spriteID: 76c617d34a84da5469ca28514097f12f
+      internalID: -704093115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_23
+      name: alessia_rabbit_star_varient_0_21
       rect:
         serializedVersion: 2
-        x: 5
-        y: 92
-        width: 55
-        height: 49
+        x: 96
+        y: 12
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,20 +565,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72d6b2502efe7424aa3aded15c8a553e
-      internalID: 1419118182
+      spriteID: 48663f73594300745a3b876219115964
+      internalID: 868496761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_24
+      name: alessia_rabbit_star_varient_0_22
       rect:
         serializedVersion: 2
-        x: 62
-        y: 96
-        width: 52
-        height: 51
+        x: 128
+        y: 12
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,20 +586,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d43cd8dcbf2632459ba070cbaa81563
-      internalID: -1502954460
+      spriteID: 006ebd0a2e1a7d34fa5ad8497f914b1a
+      internalID: 1175480230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angel1_25
+      name: alessia_rabbit_star_varient_0_23
       rect:
         serializedVersion: 2
-        x: 116
-        y: 98
-        width: 59
-        height: 51
+        x: 160
+        y: 12
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -620,176 +607,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8468c9a70ffee604f9beabe1d789130e
-      internalID: 136475462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_26
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 90
-        width: 137
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5a9d76d19d7eb74dba75fe926bf8f8d
-      internalID: 1753491693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_27
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 87
-        width: 111
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 365b0a247488be9439314442fe9487aa
-      internalID: -729999016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_28
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 18
-        width: 86
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3d9bb9ce812f0341b581ad98ee5046b
-      internalID: -1197063283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_30
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 14
-        width: 65
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 298025f25db3a0b4585772e070e2f1f0
-      internalID: 1404093497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_32
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 18
-        width: 54
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f8b43ed10cc60c438b1f876bccd53fb
-      internalID: -724554170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_33
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 20
-        width: 53
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 965a0acd1cb9e184ca8934b8fd6527c9
-      internalID: 467161431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_34
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 18
-        width: 60
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6839ded51450fc489b414ea11b2c89a
-      internalID: 775678463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angel1_35
-      rect:
-        serializedVersion: 2
-        x: 382
-        y: 16
-        width: 62
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68c857233d3fd2e4ea0be1bcc6fe2ba8
-      internalID: 463316359
+      spriteID: da1e26b50969f5f43bc87b2287fafddc
+      internalID: 588933574
       vertices: []
       indices: 
       edges: []
@@ -805,42 +624,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      angel1_0: -1985568096
-      angel1_1: -55580062
-      angel1_10: 2005904679
-      angel1_11: 1841651650
-      angel1_12: -295490971
-      angel1_13: 408856874
-      angel1_14: -248753507
-      angel1_15: -503233311
-      angel1_16: -1786660273
-      angel1_17: -1001350506
-      angel1_18: 653433527
-      angel1_19: -838324699
-      angel1_2: 1348807642
-      angel1_20: -1072884314
-      angel1_21: -1542895865
-      angel1_22: -1269122703
-      angel1_23: 1419118182
-      angel1_24: -1502954460
-      angel1_25: 136475462
-      angel1_26: 1753491693
-      angel1_27: -729999016
-      angel1_28: -1197063283
-      angel1_29: -510917074
-      angel1_3: -661853729
-      angel1_30: 1404093497
-      angel1_31: 1342149374
-      angel1_32: -724554170
-      angel1_33: 467161431
-      angel1_34: 775678463
-      angel1_35: 463316359
-      angel1_4: 451904759
-      angel1_5: 1910233432
-      angel1_6: 1615432850
-      angel1_7: -1525303951
-      angel1_8: -1370234799
-      angel1_9: -558429054
+      alessia_rabbit_star_varient_0_0: -72480375
+      alessia_rabbit_star_varient_0_1: -13291840
+      alessia_rabbit_star_varient_0_10: 1005262905
+      alessia_rabbit_star_varient_0_11: 1578489369
+      alessia_rabbit_star_varient_0_12: -629110225
+      alessia_rabbit_star_varient_0_13: 1962892342
+      alessia_rabbit_star_varient_0_14: 12047628
+      alessia_rabbit_star_varient_0_15: -1314764350
+      alessia_rabbit_star_varient_0_16: -462822660
+      alessia_rabbit_star_varient_0_17: 1092565137
+      alessia_rabbit_star_varient_0_18: -2134129642
+      alessia_rabbit_star_varient_0_19: 684787339
+      alessia_rabbit_star_varient_0_2: 482044900
+      alessia_rabbit_star_varient_0_20: -704093115
+      alessia_rabbit_star_varient_0_21: 868496761
+      alessia_rabbit_star_varient_0_22: 1175480230
+      alessia_rabbit_star_varient_0_23: 588933574
+      alessia_rabbit_star_varient_0_3: -1001771556
+      alessia_rabbit_star_varient_0_4: -1026895209
+      alessia_rabbit_star_varient_0_5: -1124398501
+      alessia_rabbit_star_varient_0_6: -2139429485
+      alessia_rabbit_star_varient_0_7: 394155531
+      alessia_rabbit_star_varient_0_8: -737302304
+      alessia_rabbit_star_varient_0_9: -2011690980
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
