@@ -125,9 +125,18 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void GetHit()
     {
-        _animator.Play(_animGetHit.name);
-        OnDelayCall(_animGetHit.length + 0.1f, () =>
+        var red = Color.red;
+        red.a = 0.5f;
+        for (var i = 0; i < _arrSprites.Count; ++i)
         {
+            _arrSprites[i].color = red;
+        }
+        OnDelayCall(_animGetHitTime, () =>
+        {
+            for (var i = 0; i < _arrSprites.Count; ++i)
+            {
+                _arrSprites[i].color = Color.white;
+            }
             ChangeState(State.Follow);
         });
     }
@@ -137,7 +146,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
         RotateWithTarget(_targetPoint);
         _animator.Play(_animAttack.name);
         
-        OnDelayCall(_animAttack.length / 2f, () =>
+        OnDelayCall(_animAttack.length * 0.75f, () =>
         {
             HitPlayer();
         });

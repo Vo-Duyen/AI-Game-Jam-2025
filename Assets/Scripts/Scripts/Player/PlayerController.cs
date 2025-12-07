@@ -1,4 +1,10 @@
-﻿using DesignPattern.ObjectPool;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using DesignPattern.ObjectPool;
+using DesignPattern.Observer;
+using LongNC;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -8,12 +14,16 @@ public class PlayerController : TimeControlled, IPlayer
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AnimationClip _animGetHit;
+    [SerializeField] private AnimationClip _animDie;
 
     [Header("Stats")]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 8f;
     [SerializeField] private float _damage = 10f;
-
+    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private float _curHealth = 100f;
+    [SerializeField] private float _range;
     [Header("Skill 2: TimePiece (Q)")]
     [SerializeField] private TimePiece _timePiecePrefab;
 
@@ -27,12 +37,38 @@ public class PlayerController : TimeControlled, IPlayer
     [SerializeField] private float _skill1Cooldown = 5f;
     [SerializeField] private float _skill2Cooldown = 3f;
     [SerializeField] private float _skill3Cooldown = 10f;
-
+    
+    [SerializeField] protected List<SpriteRenderer> _arrSprites = new  List<SpriteRenderer>();
+    [SerializeField] protected float _animGetHitTime = 0.1f; 
+    protected ObserverManager<GameEvent> observer => ObserverManager<GameEvent>.Instance;
+    
     private float _skill1Timer;
     private float _skill2Timer;
     private float _skill3Timer;
     private float _horizontal;
-    
+    [SerializeField] private Transform _hitPoint;
+    protected Collider2D[] _cols = new Collider2D[10];
+
+    private void OnEnable()
+    {
+        observer.RegisterEvent(GameEvent.OnEnemyHit, OnEnemyHit);
+    }
+
+    private void OnEnemyHit(object param)
+    {
+        if (param is (IPlayer player, float damage))
+        {
+            if (player == (IPlayer)this)
+            {
+                GetHit();
+                _curHealth -= damage;
+                if (_curHealth <= 0)
+                {
+                    _curHealth = 0;
+                }
+            }
+        }
+    }
 
     private void Update()
     {
@@ -61,10 +97,31 @@ public class PlayerController : TimeControlled, IPlayer
 
         if (Input.GetMouseButtonDown(0))
         {
-            ((IPlayer)this).Attack();
+            Attack();
         }
 
         UpdateGhostVisual();
+    }
+    
+    [FoldoutGroup("Setup arr sprites"), Button]
+    protected virtual void GetSprites()
+    {
+        _arrSprites.Clear();
+        var queue = new Queue<Transform>();
+        queue.Enqueue(transform);
+        while (queue.Count > 0)
+        {
+            var target = queue.Dequeue();
+            if (target.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
+            {
+                _arrSprites.Add(spriteRenderer);
+            }
+
+            foreach (Transform child in target)
+            {
+                queue.Enqueue(child);
+            }
+        }
     }
 
     public override void TimeUpdate()
@@ -157,17 +214,46 @@ public class PlayerController : TimeControlled, IPlayer
     void ICharacter.Reverse() { }
     void ICharacter.Jump() { }
     void ICharacter.Run() { }
-    void ICharacter.Attack() 
+    public void Attack() 
     { 
         _animator.SetTrigger("IsAttacking");
+        var size = Physics2D.OverlapCircleNonAlloc(_hitPoint.position, _range, _cols);
+        for (var i = 0; i < size; ++i)
+        {
+            var target = _cols[i].gameObject;
+            if (target.TryGetComponent<IEnemy>(out var enemy))
+            {
+                observer.PostEvent(GameEvent.OnPlayerHit, (enemy, _damage));
+                return;
+            }
+        }
     }
-    void ICharacter.GetHit() 
+    public void GetHit() 
     {
+        var red = Color.red;
+        red.a = 0.5f;
+        for (var i = 0; i < _arrSprites.Count; ++i)
+        {
+            _arrSprites[i].color = red;
+        }
+        OnDelayCall(_animGetHitTime, () =>
+        {
+            for (var i = 0; i < _arrSprites.Count; ++i)
+            {
+                _arrSprites[i].color = Color.white;
+            }
+        });
+    }
+    public void Die() 
+    {
+        if (_animDie == null) return;
+        _animator.Play(_animDie.name);
         
-    }
-    void ICharacter.Die() 
-    {
-
+        // TODO: Fix late
+        OnDelayCall(_animDie.length + 0.1f, () =>
+        {
+            PoolingManager.Despawn(gameObject);
+        });
     }
     T ICharacter.GetType<T>() { throw new System.NotImplementedException(); }
     bool ICharacter.IsType<T>(T type) { throw new System.NotImplementedException(); }
@@ -178,5 +264,45 @@ public class PlayerController : TimeControlled, IPlayer
     public Transform GetTransform()
     {
         return this.transform;
+    }
+    
+    protected virtual void OnDelayCall(float timeDelay, Action callback)
+    {
+        StartCoroutine(IEDelayCall(timeDelay, callback));
+    }
+    
+    protected virtual IEnumerator IEDelayCall(float timeDelay, Action callback)
+    {
+        yield return WaitForSecondCache.Get(timeDelay);
+        callback?.Invoke();
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        DrawCircle(_hitPoint.position, _range, 60);
+    }
+    
+    protected virtual void DrawCircle(Vector3 center, float radius, int segments)
+    {
+        var angleStep = 360f / segments;
+        var prevPoint = center + new Vector3(radius, 0, 0);
+
+        for (var i = 1; i <= segments; i++)
+        {
+            var angle = i * angleStep * Mathf.Deg2Rad;
+            var newPoint = center + new Vector3(
+                Mathf.Cos(angle) * radius,
+                Mathf.Sin(angle) * radius,
+                0
+            );
+            Gizmos.DrawLine(prevPoint, newPoint);
+            prevPoint = newPoint;
+        }
+    }
+
+    private void OnDisable()
+    {
+        observer.RemoveEvent(GameEvent.OnEnemyHit, OnEnemyHit);
     }
 }
