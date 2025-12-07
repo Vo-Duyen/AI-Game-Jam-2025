@@ -22,12 +22,30 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
     
     private bool _isDelayStart = true;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         OnDelayCall(1f, () =>
         {
             _isDelayStart = false;
         });
+    }
+
+    protected override void OnPlayerHit(object param)
+    {
+        if (param is (IEnemy enemy, float damage))
+        {
+            if (enemy == (IEnemy)this)
+            {
+                GetHit();
+                _currentHealth -= damage;
+                if (_currentHealth <= 0)
+                {
+                    _currentHealth = 0;
+                    ChangeState(State.Die);
+                }
+            }
+        }
     }
 
     public override void ChangeState<T>(T state)
@@ -44,6 +62,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
             case State.Follow:
                 break;
             case State.Attack:
+                _targetPoint.x = _player.GetTransform().position.x;
                 Attack();
                 break;
             case State.GetHit:
@@ -88,9 +107,16 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void Follow()
     {
-        if (Vector3.Distance(transform.position, _targetPoint) <= _enemyData.attackRange)
+        var distanceTarget = Vector3.Distance(transform.position, _targetPoint);
+        if (distanceTarget <= _enemyData.attackRange)
         {
             ChangeState(State.Attack);
+            return;
+        }
+
+        if (distanceTarget >= _enemyData.attackFollowRange)
+        {
+            ChangeState(State.Patrol);
             return;
         }
         var direction = (_targetPoint - transform.position).normalized;
@@ -108,7 +134,14 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void Attack()
     {
+        RotateWithTarget(_targetPoint);
         _animator.Play(_animAttack.name);
+        
+        OnDelayCall(_animAttack.length / 2f, () =>
+        {
+            HitPlayer();
+        });
+        
         OnDelayCall(_animAttack.length + 0.1f, () =>
         {
             ChangeState(State.Follow);

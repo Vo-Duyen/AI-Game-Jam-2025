@@ -1,19 +1,25 @@
 ﻿using System;
-using DesignPattern;
+using DesignPattern; // Nếu bạn dùng namespace này, còn không thì xóa đi
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeController : Singleton<TimeController>
+public class TimeController : MonoBehaviour // Hoặc Singleton<TimeController>
 {
+    public static TimeController Instance { get; private set; }
 
     [Header("Settings")]
     public float MaxRecordTime = 5f;
 
     private Dictionary<TimeControlled, List<RecordFrameData>> _database = new Dictionary<TimeControlled, List<RecordFrameData>>();
-
     private List<TimeControlled> _registeredObjects = new List<TimeControlled>();
 
     public bool IsRewinding { get; private set; } = false;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -32,7 +38,7 @@ public class TimeController : Singleton<TimeController>
             Record();
     }
 
-    // --- LOGIC GHI ---
+    // --- LOGIC GHI (SỬA ĐỔI) ---
     private void Record()
     {
         float currentTime = Time.time;
@@ -41,7 +47,6 @@ public class TimeController : Singleton<TimeController>
         {
             TimeControlled obj = _registeredObjects[i];
             if (obj == null) continue;
-
             if (!_database.ContainsKey(obj)) continue;
 
             List<RecordFrameData> dataList = _database[obj];
@@ -50,7 +55,10 @@ public class TimeController : Singleton<TimeController>
             {
                 _position = obj.transform.position,
                 _velocity = obj.Velocity,
-                _timestamp = currentTime
+                _timestamp = currentTime,
+
+                _sprite = (obj.MySpriteRenderer != null) ? obj.MySpriteRenderer.sprite : null,
+                _localScale = obj.transform.localScale
             });
 
             while (dataList.Count > 0 && (currentTime - dataList[0]._timestamp > MaxRecordTime))
@@ -62,6 +70,7 @@ public class TimeController : Singleton<TimeController>
         }
     }
 
+    // --- LOGIC TUA (SỬA ĐỔI) ---
     private void Rewind()
     {
         bool hasDataLeft = false;
@@ -81,14 +90,17 @@ public class TimeController : Singleton<TimeController>
                 obj.transform.position = data._position;
                 obj.Velocity = data._velocity;
 
+                if (obj.MySpriteRenderer != null && data._sprite != null)
+                {
+                    obj.MySpriteRenderer.sprite = data._sprite;
+                }
+                obj.transform.localScale = data._localScale;
+
                 dataList.RemoveAt(lastIndex);
             }
         }
 
-        if (!hasDataLeft)
-        {
-            StopRewind();
-        }
+        if (!hasDataLeft) StopRewind();
     }
 
     public void StartRewind() => IsRewinding = true;
@@ -112,20 +124,29 @@ public class TimeController : Singleton<TimeController>
         }
     }
 
-    public Vector2 GetGhostPosition(TimeControlled obj)
+    public RecordFrameData GetGhostFrame(TimeControlled obj)
     {
         if (_database.ContainsKey(obj) && _database[obj].Count > 0)
         {
-            
-            return _database[obj][0]._position;
+            return _database[obj][0];
         }
-        return obj.transform.position;
+        return null;
+    }
+
+    public Vector2 GetGhostPosition(TimeControlled obj)
+    {
+        var frame = GetGhostFrame(obj);
+        return frame != null ? frame._position : (Vector2)obj.transform.position;
     }
 }
+
 [System.Serializable]
 public class RecordFrameData
 {
     public Vector2 _position;
     public Vector2 _velocity;
     public float _timestamp;
+
+    public Sprite _sprite;
+    public Vector3 _localScale;
 }

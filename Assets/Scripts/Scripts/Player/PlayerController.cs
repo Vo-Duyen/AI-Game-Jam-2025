@@ -18,7 +18,7 @@ public class PlayerController : TimeControlled, IPlayer
     [SerializeField] private TimePiece _timePiecePrefab;
 
     [Header("Skill 3: Chronobreak (R)")]
-    [SerializeField] private GameObject _ghostVFX;
+    [SerializeField] private SpriteRenderer _ghostVFX;
     [SerializeField] private GameObject _explosionVFX;
     [SerializeField] private float _ultRadius = 3.5f;
     [SerializeField] private int _ultDamage = 150;
@@ -57,6 +57,11 @@ public class PlayerController : TimeControlled, IPlayer
         {
             ((IPlayer)this).Skill3();
             _skill3Timer = _skill3Cooldown;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            ((IPlayer)this).Attack();
         }
 
         UpdateGhostVisual();
@@ -113,19 +118,39 @@ public class PlayerController : TimeControlled, IPlayer
 
     private void UpdateGhostVisual()
     {
-        if (_skill3Timer <= 0)
+        if (_skill3Timer > 0)
         {
-            if (!_ghostVFX.activeSelf) _ghostVFX.SetActive(true);
+            if (_ghostVFX.gameObject.activeSelf) _ghostVFX.gameObject.SetActive(false);
+            return;
+        }
 
-            Vector2 ghostPos = TimeController.Instance.GetGhostPosition(this);
-            _ghostVFX.transform.position = ghostPos;
+        RecordFrameData ghostFrame = TimeController.Instance.GetGhostFrame(this);
 
-            float distance = Vector2.Distance(ghostPos, transform.position);
-            if (distance < 0.5f) _ghostVFX.SetActive(false);
+        if (ghostFrame != null)
+        {
+            float dataAge = Time.time - ghostFrame._timestamp;
+            float maxTime = TimeController.Instance.MaxRecordTime;
+
+            if (dataAge >= maxTime - 0.1f)
+            {
+                if (!_ghostVFX.gameObject.activeSelf) _ghostVFX.gameObject.SetActive(true);
+
+                _ghostVFX.transform.position = ghostFrame._position;
+                _ghostVFX.sprite = ghostFrame._sprite;
+
+                _ghostVFX.transform.localScale = ghostFrame._localScale;
+            }
+            else
+            {
+                if (_ghostVFX.gameObject.activeSelf) _ghostVFX.gameObject.SetActive(false);
+            }
+
+            float distance = Vector2.Distance(ghostFrame._position, transform.position);
+            if (distance < 0.5f) _ghostVFX.gameObject.SetActive(false);
         }
         else
         {
-            if (_ghostVFX.activeSelf) _ghostVFX.SetActive(false);
+            if (_ghostVFX.gameObject.activeSelf) _ghostVFX.gameObject.SetActive(false);
         }
     }
 
@@ -134,7 +159,7 @@ public class PlayerController : TimeControlled, IPlayer
     void ICharacter.Run() { }
     void ICharacter.Attack() 
     { 
-
+        _animator.SetTrigger("IsAttacking");
     }
     void ICharacter.GetHit() 
     {

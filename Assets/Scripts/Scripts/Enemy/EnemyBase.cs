@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DesignPattern.ObjectPool;
+using DesignPattern.Observer;
 using LongNC;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -31,11 +32,16 @@ where TEnemyType : Enum
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animGetHit;
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animDeath;
 
+    [OdinSerialize] protected Transform _pointHit;
+    [OdinSerialize] protected float _currentHealth;
+    
+    protected float _maxHealth;
     protected Vector3 _savePoint = Vector3.left * 999;
     protected RaycastHit2D[] _hits = new RaycastHit2D[10];
     protected Collider2D[] _cols = new Collider2D[10];
     protected Vector3 _targetPoint;
     protected IPlayer _player;
+    protected ObserverManager<GameEvent> observer => ObserverManager<GameEvent>.Instance;
 
     protected Vector3[] _directions = new Vector3[]
     {
@@ -76,6 +82,33 @@ where TEnemyType : Enum
             animator = gameObject.AddComponent<Animator>();
         }
         _animator = animator;
+    }
+
+    protected virtual void Awake()
+    {
+        Setup();
+    }
+
+    protected virtual void Setup()
+    {
+        if (_enemyData == null) return;
+        _maxHealth = _enemyData.maxHealth;
+        _currentHealth = _maxHealth;
+    }
+
+    protected virtual void OnEnable()
+    {
+        observer.RegisterEvent(GameEvent.OnPlayerHit, OnPlayerHit);
+    }
+
+    protected void OnDisable()
+    {
+        observer.RemoveEvent(GameEvent.OnPlayerHit, OnPlayerHit);
+    }
+
+    protected virtual void OnPlayerHit(object param)
+    {
+        
     }
 
     public Transform GetTransform()
@@ -145,11 +178,21 @@ where TEnemyType : Enum
         var limit = 0.4f;
         if (Vector3.Distance(direction, _directions[0]) <= limit)
         {
+            if (transform.forward.normalized != _directions[0])
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
             transform.position += Vector3.left * speed * Time.deltaTime;
+            AnimMove();
         }
         else if (Vector3.Distance(direction, _directions[1]) <= limit)
         {
+            if (transform.forward.normalized != _directions[1])
+            {
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
             transform.position += Vector3.right * speed * Time.deltaTime;
+            AnimMove();
         }
         else if (Vector3.Distance(direction, _directions[2]) <= limit)
         {
@@ -163,6 +206,11 @@ where TEnemyType : Enum
         {
             Debug.LogWarning($"Direction {direction} not supported");
         }
+    }
+
+    protected virtual void AnimMove()
+    {
+        _animator?.Play(_animRun.name);
     }
     
     [Button]
@@ -196,6 +244,20 @@ where TEnemyType : Enum
     public virtual void Attack()
     {
         
+    }
+
+    protected virtual void HitPlayer()
+    {
+        var size = Physics2D.OverlapCircleNonAlloc(_pointHit.position, _enemyData.getHitRange, _cols);
+        for (var i = 0; i < size; ++i)
+        {
+            var target = _cols[i].gameObject;
+            if (target.TryGetComponent<IPlayer>(out var player))
+            {
+                observer.PostEvent(GameEvent.OnEnemyHit, (player, _enemyData.damage));
+                return;
+            }
+        }
     }
 
     [Button]
@@ -282,6 +344,12 @@ where TEnemyType : Enum
         
         Gizmos.color = Color.yellow;
         DrawCircle(transform.position, _enemyData.attackFollowRange, 60);
+
+        Gizmos.color = Color.red;
+        DrawCircle(transform.position, _enemyData.attackRange, 60);
+        
+        Gizmos.color = Color.red;
+        DrawCircle(_pointHit.position, _enemyData.getHitRange, 60);
     }
     protected virtual void DrawCircle(Vector3 center, float radius, int segments)
     {
@@ -298,6 +366,24 @@ where TEnemyType : Enum
             );
             Gizmos.DrawLine(prevPoint, newPoint);
             prevPoint = newPoint;
+        }
+    }
+
+    protected virtual void RotateWithTarget(Vector3 target)
+    {
+        if (transform.rotation == Quaternion.Euler(0, 0, 0))
+        {
+            if (transform.position.x < target.x)
+            {
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+        }
+        else if (transform.rotation == Quaternion.Euler(0, 180f, 0))
+        {
+            if (transform.position.x > target.x)
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
         }
     }
 }
