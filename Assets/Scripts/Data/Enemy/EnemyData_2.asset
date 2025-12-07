@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5166eedde9d344519d724c88e904b21f, type: 3}
-  m_Name: EnemyData_0
+  m_Name: EnemyData_2
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,13 +22,13 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   typeEnemy: 0
-  maxHealth: 100
-  damage: 10
+  maxHealth: 50
+  damage: 5
   distanceCheckGround: 2.55
-  moveSpeed: 2
-  runSpeeed: 3
-  jumpForce: 500
+  moveSpeed: 3
+  runSpeeed: 5
+  jumpForce: 50
   patrolRange: 5
   attackFollowRange: 5
-  attackRange: 3
-  getHitRange: 2
+  attackRange: 2.75
+  getHitRange: 1.5
