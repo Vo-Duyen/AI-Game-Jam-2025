@@ -339,6 +339,7 @@ where TEnemyType : Enum
     public virtual void Die()
     {
         SoundManager.Instance.PlayFX(SoundId.EnemyDie);
+        ObserverManager<GameEvent>.Instance.PostEvent(GameEvent.OnEnemyDie, this);
         _animator.Play(_animAttack.name);
         OnDelayCall(_animAttack.length + 0.1f, () =>
         {
