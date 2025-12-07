@@ -293,7 +293,7 @@ where TEnemyType : Enum
         _animator.Play(_animAttack.name);
         OnDelayCall(_animAttack.length + 0.1f, () =>
         {
-            PoolingManager.Despawn(gameObject);
+            Destroy(gameObject);
         });
     }
 

@@ -1,4 +1,6 @@
 ﻿using DesignPattern.ObjectPool;
+using DesignPattern.Observer;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,10 +13,12 @@ public class TimePiece : TimeControlled
     
     [Header("Effect Stats")]
     [SerializeField] private float _hangTime = 0.5f;
+    [SerializeField] private float _damage = 10f;
 
     private Vector2 _startPos;
     private Transform _owner;
-    
+    protected ObserverManager<GameEvent> observer => ObserverManager<GameEvent>.Instance;
+
     private bool _isReturning = false;
     private bool _isHanging = false;
 
@@ -26,9 +30,6 @@ public class TimePiece : TimeControlled
         direction.Normalize();
 
         Velocity = direction * _throwSpeed;
-
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         if (TimeController.Instance != null)
         {
@@ -96,9 +97,10 @@ public class TimePiece : TimeControlled
     {
         if (collision.transform == _owner) return;
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.TryGetComponent<IEnemy>(out var enemy))
         {
-            Debug.Log("Hit Enemy: " + collision.name);
+            observer.PostEvent(GameEvent.OnPlayerHit, (enemy, _damage));
+            return;
         }
     }
 }
