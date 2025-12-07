@@ -193,9 +193,57 @@ where TEnemyType : Enum
         _rb.AddForce(new Vector2(0f, _enemyData.jumpForce));
     }
 
+    private Vector3 check;
+    public virtual bool IsCanMove(Vector3 direction)
+    {
+        var limit = 0.4f;
+        var distance = 1f;
+        var direct = Vector3.zero;
+        if (Vector3.Distance(direction, _directions[0]) <= limit)
+        {
+            direct = _directions[0];
+        }
+        else if (Vector3.Distance(direction, _directions[1]) <= limit)
+        {
+            direct = _directions[1];
+        }
+        
+        if (_enemyData == null) return false;
+        var size = Physics2D.RaycastNonAlloc(transform.position, direct, _hits, _enemyData.distanceCheckGround);
+        for (var i = 0; i < size; ++i)
+        {
+            if (_hits[i].transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                return false;
+            }
+        }
+
+        check = direct;
+        size = Physics2D.RaycastNonAlloc(transform.position + direct * distance, Vector2.down, _hits, _enemyData.distanceCheckGround);
+        // Debug.Log(size);
+        for (var i = 0; i < size; ++i)
+        {
+            if (_hits[i].transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     [Button]
     public virtual void Move(Vector3 direction, float speed)
     {
+        if (!IsCanMove(direction))
+        {
+            var newX = Random.Range(_savePoint.x - _enemyData.patrolRange, _savePoint.x + _enemyData.patrolRange);
+            while (Mathf.Abs(newX - _targetPoint.x) <= _enemyData.patrolRange / 2f)
+            {
+                newX = Random.Range(_savePoint.x - _enemyData.patrolRange, _savePoint.x + _enemyData.patrolRange);
+            }
+            _targetPoint.x = newX;
+            return;
+        }
         var limit = 0.4f;
         if (Vector3.Distance(direction, _directions[0]) <= limit)
         {
@@ -371,6 +419,9 @@ where TEnemyType : Enum
         
         Gizmos.color = Color.red;
         DrawCircle(_pointHit.position, _enemyData.getHitRange, 60);
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position + check * 1f, transform.position + check * 1f + Vector3.down * _enemyData.distanceCheckGround);
     }
     protected virtual void DrawCircle(Vector3 center, float radius, int segments)
     {

@@ -28,6 +28,7 @@ public interface IPlayer : ICharacter
 
 public interface IEnemy : ICharacter
 {
+    bool IsCanMove(Vector3 direction);
     void Move(Vector3 direction, float speed);
     void Patrol();
     void Follow();

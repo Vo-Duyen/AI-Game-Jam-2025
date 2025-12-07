@@ -22,9 +22,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   typeEnemy: 0
-  maxHealth: 35
+  maxHealth: 200
   damage: 5
-  distanceCheckGround: 2.55
+  distanceCheckGround: 1.26
   moveSpeed: 3
   runSpeeed: 5
   jumpForce: 50
