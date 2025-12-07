@@ -99,7 +99,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void GetHit()
     {
-        _animation.Play(_animGetHit.name);
+        _animator.Play(_animGetHit.name);
         OnDelayCall(_animGetHit.length + 0.1f, () =>
         {
             ChangeState(State.Follow);
@@ -108,7 +108,7 @@ public class EnemyController : EnemyBase<EnemyController.State, EnemyController.
 
     public override void Attack()
     {
-        _animation.Play(_animAttack.name);
+        _animator.Play(_animAttack.name);
         OnDelayCall(_animAttack.length + 0.1f, () =>
         {
             ChangeState(State.Follow);

@@ -373,6 +373,8 @@ MonoBehaviour:
     - {fileID: 1306390346}
     - {fileID: 1306390350}
     - {fileID: 11400000, guid: 15ec4f17bef51384fbf72b36724f316f, type: 2}
+    - {fileID: 7400000, guid: 4b5e4c6c0f6007544b427c513505e72b, type: 2}
+    - {fileID: 7400000, guid: 7e71ea6d17fa801439894521dca68188, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -387,18 +389,18 @@ MonoBehaviour:
     - Name: _rb
       Entry: 10
       Data: 0
-    - Name: _animation
+    - Name: _animator
       Entry: 10
       Data: 1
     - Name: _enemyData
       Entry: 10
       Data: 2
     - Name: _animMove
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 3
     - Name: _animRun
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 4
     - Name: _animJump
       Entry: 6
       Data: 
@@ -411,21 +413,27 @@ MonoBehaviour:
     - Name: _animDeath
       Entry: 6
       Data: 
---- !u!111 &1306390350
-Animation:
+--- !u!95 &1306390350
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306390342}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce6477616f6131a4cba303b89cfe0f51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1555182754
 GameObject:
   m_ObjectHideFlags: 0

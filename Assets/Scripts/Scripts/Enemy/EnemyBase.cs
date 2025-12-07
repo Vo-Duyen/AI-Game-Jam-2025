@@ -21,7 +21,7 @@ where TEnemyType : Enum
     [BoxGroup(SetupString), OdinSerialize] protected TState _state;
     
     [FoldoutGroup(AddComponentString), OdinSerialize] protected Rigidbody2D _rb;
-    [FoldoutGroup(AddComponentString), OdinSerialize] protected Animation _animation;
+    [FoldoutGroup(AddComponentString), OdinSerialize] protected Animator _animator;
     [FoldoutGroup(AddComponentString), OdinSerialize] protected EnemyData _enemyData;
     
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animMove;
@@ -69,13 +69,13 @@ where TEnemyType : Enum
     }
 
     [FoldoutGroup(AddComponentString), Button]
-    protected virtual void AddAnimation()
+    protected virtual void AddAnimator()
     {
-        if (!transform.TryGetComponent<Animation>(out var animation))
+        if (!transform.TryGetComponent<Animator>(out var animator))
         {
-            animation = gameObject.AddComponent<Animation>();
+            animator = gameObject.AddComponent<Animator>();
         }
-        _animation = animation;
+        _animator = animator;
     }
 
     public Transform GetTransform()
@@ -207,7 +207,7 @@ where TEnemyType : Enum
     [Button]
     public virtual void Die()
     {
-        _animation.Play(_animAttack.name);
+        _animator.Play(_animAttack.name);
         OnDelayCall(_animAttack.length + 0.1f, () =>
         {
             PoolingManager.Despawn(gameObject);
