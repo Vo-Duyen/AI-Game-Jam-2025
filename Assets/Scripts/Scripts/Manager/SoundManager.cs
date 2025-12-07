@@ -7,10 +7,18 @@ using UnityEngine;
 
 public enum SoundId
 {
-    Background,
-    Move,
+    Background1,
+    Background2,
     Win,
     Lose,
+    EnemyDie,
+    Wind,
+    KnifeAttack,
+    GetHit1,
+    GetHit2,
+    Skill1,
+    Skill2,
+    Skill3,
 }
 
 public class SoundManager : Singleton<SoundManager>

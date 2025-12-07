@@ -30,6 +30,7 @@ public class LoadingSceneManager : SerializedMonoBehaviour
         SetupLoading();
         SetupButtons();
         DOVirtual.DelayedCall(_timeLoading + 0.1f, PlayActive);
+        SoundManager.Instance.PlayFX(SoundId.Background1, true);
     }
 
     #region Setup
