@@ -24,13 +24,14 @@ where TEnemyType : Enum
     [FoldoutGroup(AddComponentString), OdinSerialize] protected Rigidbody2D _rb;
     [FoldoutGroup(AddComponentString), OdinSerialize] protected Animator _animator;
     [FoldoutGroup(AddComponentString), OdinSerialize] protected EnemyData _enemyData;
+    [FoldoutGroup(AddComponentString), OdinSerialize] protected List<SpriteRenderer> _arrSprites = new  List<SpriteRenderer>();
     
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animMove;
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animRun;
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animJump;
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animAttack;
-    [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animGetHit;
     [FoldoutGroup(AnimString), OdinSerialize] protected AnimationClip _animDeath;
+    [FoldoutGroup(AnimString), OdinSerialize] protected float _animGetHitTime = 0.1f;
 
     [OdinSerialize] protected Transform _pointHit;
     [OdinSerialize] protected float _currentHealth;
@@ -84,6 +85,26 @@ where TEnemyType : Enum
         _animator = animator;
     }
 
+    [FoldoutGroup(AddComponentString), Button]
+    protected virtual void GetSprites()
+    {
+        _arrSprites.Clear();
+        var queue = new Queue<Transform>();
+        queue.Enqueue(transform);
+        while (queue.Count > 0)
+        {
+            var target = queue.Dequeue();
+            if (target.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
+            {
+                _arrSprites.Add(spriteRenderer);
+            }
+
+            foreach (Transform child in target)
+            {
+                queue.Enqueue(child);
+            }
+        }
+    }
     protected virtual void Awake()
     {
         Setup();
