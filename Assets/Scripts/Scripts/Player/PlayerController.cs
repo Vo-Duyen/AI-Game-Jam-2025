@@ -74,6 +74,10 @@ public class PlayerController : TimeControlled, IPlayer
                     _curHealth = 0;
                 }
                 UpdateHealthBar();
+                if (_curHealth <= 0)
+                {
+                    ObserverManager<UIEventID>.Instance.PostEvent(UIEventID.OnLoseGame);
+                }
             }
         }
     }

@@ -19,7 +19,6 @@ public class GameplayUI : BaseUIPanel
     [OdinSerialize] private Button _helpButton;
     [OdinSerialize] private Button _settingButton;
 
-    [Title("Text")] [OdinSerialize] private TextMeshProUGUI _tipText;
 
     private Tween _tween;
 
@@ -69,14 +68,13 @@ public class GameplayUI : BaseUIPanel
 
     public void UpdateLevel(int level)
     {
-        _levelText.text = $"Level {level}";
-        _timerTween?.Kill();
-        _timerTween = _levelText.transform.DOPunchScale(Vector3.one * 0.5f, 0.5f);
+        // _timerTween?.Kill();
+        // _timerTween = _levelText.transform.DOPunchScale(Vector3.one * 0.5f, 0.5f);
     }
 
     public void ShowTip(bool isShow, string tip)
     {
-        _tipText.text = tip;
-        _tipText.gameObject.SetActive(isShow);
+        // _tipText.text = tip;
+        // _tipText.gameObject.SetActive(isShow);
     }
 }
