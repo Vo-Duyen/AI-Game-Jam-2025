@@ -1,11 +1,9 @@
 ﻿using System;
 using DesignPattern;
 using System.Collections;
-using DesignPattern;
 using DesignPattern.Observer;
 using DG.Tweening;
 using UnityEngine;
-using DesignPattern.Observer;
 using UnityEngine.SceneManagement;
 
 public enum GameEvent

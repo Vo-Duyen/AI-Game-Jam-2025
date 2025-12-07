@@ -15,7 +15,7 @@ public class Loading : MonoBehaviour
 
     private void Start()
     {
-        //SoundManager.Instance.PlayFX(SoundId.Background, true);
+        SoundManager.Instance.PlayFX(SoundId.Background, true);
         var loadScreen = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         if (loadScreen != null) loadScreen.allowSceneActivation = false;
 
