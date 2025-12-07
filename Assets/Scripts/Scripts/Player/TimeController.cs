@@ -56,9 +56,9 @@ public class TimeController : MonoBehaviour // Hoặc Singleton<TimeController>
                 _position = obj.transform.position,
                 _velocity = obj.Velocity,
                 _timestamp = currentTime,
-
                 _sprite = (obj.MySpriteRenderer != null) ? obj.MySpriteRenderer.sprite : null,
-                _localScale = obj.transform.localScale
+                _localScale = obj.transform.localScale,
+                _health = obj.GetCurrentHealth()
             });
 
             while (dataList.Count > 0 && (currentTime - dataList[0]._timestamp > MaxRecordTime))
@@ -146,7 +146,7 @@ public class RecordFrameData
     public Vector2 _position;
     public Vector2 _velocity;
     public float _timestamp;
-
+    public float _health;
     public Sprite _sprite;
     public Vector3 _localScale;
 }

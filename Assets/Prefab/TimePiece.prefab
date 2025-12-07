@@ -137,4 +137,4 @@ MonoBehaviour:
   _returnSpeed: 24
   _maxDistance: 5
   _hangTime: 0.5
-  _damage: 10
+  _damage: 35

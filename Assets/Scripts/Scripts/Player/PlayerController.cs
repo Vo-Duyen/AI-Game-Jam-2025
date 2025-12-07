@@ -189,11 +189,27 @@ public class PlayerController : TimeControlled, IPlayer
         newPiece.Initialize(this.transform, shootDirection);
     }
 
+    public override float GetCurrentHealth()
+    {
+        return _curHealth;
+    }
+
     void IPlayer.Skill3()
     {
-        Vector2 targetPos = TimeController.Instance.GetGhostPosition(this);
+        RecordFrameData ghostFrame = TimeController.Instance.GetGhostFrame(this);
 
-        transform.position = targetPos;
+        if (ghostFrame != null)
+        {
+            transform.position = ghostFrame._position;
+
+            _curHealth = ghostFrame._health;
+            UpdateHealthBar();
+        }
+        else
+        {
+            transform.position = TimeController.Instance.GetGhostPosition(this);
+        }
+
         _playerMovement.Rigidbody2D.velocity = Vector2.zero;
         Velocity = Vector2.zero;
         _skill1Cooldown = 0f;
@@ -204,12 +220,10 @@ public class PlayerController : TimeControlled, IPlayer
         {
             if (hit.CompareTag("Enemy"))
             {
+                observer.PostEvent(GameEvent.OnPlayerHit, (hit.GetComponent<IEnemy>(), (float)_ultDamage));
                 Debug.Log("Ulti Damage: " + hit.name);
             }
         }
-
-        // 4. Effect nổ
-        //if (_explosionVFX) PoolingManager.Spawn(_explosionVFX, transform.position, Quaternion.identity);
     }
 
     private void UpdateGhostVisual()

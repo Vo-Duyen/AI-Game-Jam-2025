@@ -22,4 +22,9 @@ public class TimeControlled : MonoBehaviour
     {
 
     }
+
+    public virtual float GetCurrentHealth()
+    {
+        return 0f;
+    }
 }
