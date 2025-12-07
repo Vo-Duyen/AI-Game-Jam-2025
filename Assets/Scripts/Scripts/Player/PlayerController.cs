@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DesignPattern.ObjectPool;
+﻿using DesignPattern.ObjectPool;
 using DesignPattern.Observer;
 using LongNC;
 using Sirenix.OdinInspector;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -174,11 +175,14 @@ public class PlayerController : TimeControlled, IPlayer
 
     void IPlayer.Skill1()
     {
+        SoundManager.Instance.PlayFX(SoundId.Skill1);
         TimeController.Instance.StartRewind();
     }
 
     void IPlayer.Skill2()
     {
+
+        SoundManager.Instance.PlayFX(SoundId.Skill2);
         Vector3 mouseScreenPos = Input.mousePosition;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         mouseWorldPos.z = 0;
@@ -196,6 +200,7 @@ public class PlayerController : TimeControlled, IPlayer
 
     void IPlayer.Skill3()
     {
+        SoundManager.Instance.PlayFX(SoundId.Skill3);
         RecordFrameData ghostFrame = TimeController.Instance.GetGhostFrame(this);
 
         if (ghostFrame != null)
@@ -267,8 +272,9 @@ public class PlayerController : TimeControlled, IPlayer
     void ICharacter.Reverse() { }
     void ICharacter.Jump() { }
     void ICharacter.Run() { }
-    public void Attack() 
-    { 
+    public void Attack()
+    {
+        SoundManager.Instance.PlayFX(SoundId.KnifeAttack);
         _animator.SetTrigger("IsAttacking");
         var size = Physics2D.OverlapCircleNonAlloc(_hitPoint.position, _range, _cols);
         for (var i = 0; i < size; ++i)
@@ -281,8 +287,9 @@ public class PlayerController : TimeControlled, IPlayer
             }
         }
     }
-    public void GetHit() 
+    public void GetHit()
     {
+        SoundManager.Instance.PlayFX(SoundId.GetHit1);
         var red = Color.red;
         red.a = 0.5f;
         for (var i = 0; i < _arrSprites.Count; ++i)
@@ -297,8 +304,9 @@ public class PlayerController : TimeControlled, IPlayer
             }
         });
     }
-    public void Die() 
+    public void Die()
     {
+        SoundManager.Instance.PlayFX(SoundId.EnemyDie);
         if (_animDie == null) return;
         _animator.Play(_animDie.name);
         
